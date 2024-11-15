@@ -14,7 +14,7 @@ class TokoSepatuSeeder extends Seeder
     {
         TokoSepatu::insert([
             ['Tipe' => 'Nike', 'Size' => '42', 'Harga' => 2000000],
-            ['Tipe' => 'Adidas', 'Size' => '41', 'Harga' => 1800000],
+            ['Tipe' => 'Adidas', 'Size' => '41', 'Harga' => 2000000],
         ]);
     }
 }

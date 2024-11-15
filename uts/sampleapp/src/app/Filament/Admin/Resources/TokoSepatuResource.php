@@ -47,6 +47,14 @@ class TokoSepatuResource extends Resource
                     ->numeric()
                     ->sortable()
                     ->formatStateUsing(fn (string $state): string => 'Rp' . number_format($state, 0, ',', '.')),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

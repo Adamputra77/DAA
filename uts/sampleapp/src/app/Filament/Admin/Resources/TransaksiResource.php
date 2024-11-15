@@ -47,7 +47,8 @@ class TransaksiResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sepatu_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->formatStateUsing(fn (string $state): string => 'Rp' . number_format($state, 0, ',', '.')),
                 Tables\Columns\TextColumn::make('Jumlah')
                     ->numeric()
                     ->sortable(),

@@ -14,9 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
+            RolePermissionSeeder::class,
             TokoSepatuSeeder::class,
             PelangganSeeder::class,
-            TransaksiSeeder::class,
+            TransaksiSeeder::class
         ]);
 
         $this->seedUsers(); // Panggil fungsi untuk seed pengguna
@@ -45,6 +46,10 @@ class DatabaseSeeder extends Seeder
         foreach ($users as $user) {
             if ($user->email == 'admin@admin.com') {
                 $user->assignRole('super_admin');
+            }elseif($user->email == 'abc@admin.com'){
+                $user->assignRole('Penjual');
+            }else{
+                $user->assignRole('Pembeli');
             }
         }
     }
