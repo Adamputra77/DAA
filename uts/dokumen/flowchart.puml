@@ -1,0 +1,35 @@
+@startuml
+start
+
+:Registrasi Pelanggan;
+if (Data Valid?) then (Ya)
+  :Notifikasi ke Admin;
+  if (Verifikasi Admin?) then (Diterima)
+    :Pelanggan Menerima Notifikasi Diterima;
+    :Pelanggan Dapat Melakukan Pemesanan;
+  else (Ditolak)
+    :Pelanggan Menerima Notifikasi Penolakan;
+  endif
+else (Tidak)
+  :Registrasi Gagal;
+endif
+
+:Melihat Daftar Sepatu;
+:Memilih Sepatu;
+
+if (Stok Tersedia?) then (Ya)
+  :Pesanan Dikonfirmasi;
+  :Detail Pembayaran Dikirim ke Pelanggan;
+  :Pelanggan Menyelesaikan Pembayaran;
+  :Admin Memproses Pengiriman;
+  :Pelanggan Menerima Notifikasi Pengiriman;
+else (Tidak)
+  :Pesanan Dibatalkan;
+  :Pelanggan Menerima Notifikasi Stok Habis;
+endif
+
+:Admin Mengelola Data Sepatu;
+:Menambah/Menghapus/Update Data Sepatu;
+
+stop
+@enduml

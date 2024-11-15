@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor Pelanggan
+actor Admin
+
+usecase "Registrasi Pelanggan" as UC1
+usecase "Melihat Daftar Sepatu" as UC2
+usecase "Memesan Sepatu" as UC3
+usecase "Menerima Notifikasi Status" as UC4
+usecase "Mengelola Data Sepatu" as UC5
+usecase "Memverifikasi Pemesanan" as UC6
+usecase "Memproses Transaksi" as UC7
+usecase "Mengirimkan Notifikasi" as UC8
+
+Pelanggan --> UC1
+Pelanggan --> UC2
+Pelanggan --> UC3
+Pelanggan --> UC4
+
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+
+UC3 <-- UC6 : "Verifikasi Stok"
+UC7 <-- UC6 : "Konfirmasi Pembayaran"
+UC4 <-- UC8 : "Kirim Status"
+@enduml
