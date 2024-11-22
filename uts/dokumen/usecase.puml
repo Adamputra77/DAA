@@ -1,28 +1,22 @@
 @startuml
 left to right direction
-actor Pelanggan
-actor Admin
+actor Admin as A
+actor Penjual as P
+actor Pembeli as B
 
-usecase "Registrasi Pelanggan" as UC1
-usecase "Melihat Daftar Sepatu" as UC2
-usecase "Memesan Sepatu" as UC3
-usecase "Menerima Notifikasi Status" as UC4
-usecase "Mengelola Data Sepatu" as UC5
-usecase "Memverifikasi Pemesanan" as UC6
-usecase "Memproses Transaksi" as UC7
-usecase "Mengirimkan Notifikasi" as UC8
-
-Pelanggan --> UC1
-Pelanggan --> UC2
-Pelanggan --> UC3
-Pelanggan --> UC4
-
-Admin --> UC5
-Admin --> UC6
-Admin --> UC7
-Admin --> UC8
-
-UC3 <-- UC6 : "Verifikasi Stok"
-UC7 <-- UC6 : "Konfirmasi Pembayaran"
-UC4 <-- UC8 : "Kirim Status"
+rectangle "Sistem Toko Sepatu" {
+    usecase "Kelola Produk" as UC1
+    usecase "Kelola Pelanggan" as UC2
+    usecase "Kelola Transaksi" as UC3
+    usecase "Melihat Produk" as UC4
+    usecase "Melihat Riwayat Transaksi" as UC5
+    
+    A --> UC1 : Kelola semua
+    A --> UC2 : Kelola semua
+    A --> UC3 : Kelola semua
+    P --> UC3 : Kelola milik sendiri
+    P --> UC2 : Melihat data pelanggan
+    B --> UC4 : Melihat daftar produk
+    B --> UC5 : Melihat milik sendiri
+}
 @enduml
