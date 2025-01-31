@@ -1,0 +1,54 @@
+@startuml
+left to right direction
+actor Siswa as S
+actor Instruktur as I
+actor Admin as A
+
+rectangle "Sistem Les Komputer Online" {
+  (Login/Registrasi) as UC1
+  (Melihat Kelas Tersedia) as UC2
+  (Mengikuti Kelas) as UC3
+  (Mengerjakan Ujian) as UC4
+  (Melihat Hasil Evaluasi) as UC5
+  (Memberikan Sertifikat) as UC6
+  (Mengelola Kelas) as UC7
+  (Mengelola Siswa) as UC8
+  (Mengatur Jadwal Ujian) as UC9
+}
+
+S --> UC1
+S --> UC2
+S --> UC3
+S --> UC4
+S --> UC5
+
+I --> UC4
+I --> UC6
+I --> UC7
+I --> UC9
+
+A --> UC7
+A --> UC8
+A --> UC9
+A --> UC1
+
+UC3 .> (Sistem Klasifikasi Siswa) : Include
+UC4 .> (Verifikasi Penyelesaian Belajar) : Include
+UC5 .> (Grafik Performa Siswa) : Extend
+
+note right of UC3
+  Siswa hanya bisa mengikuti kelas
+  sesuai dengan tingkat kemampuannya.
+end note
+
+note left of UC7
+  Instruktur dan admin dapat menambahkan,
+  mengedit, atau menghapus kelas.
+end note
+
+note right of UC9
+  Admin dan instruktur dapat mengatur jadwal ujian 
+  sesuai dengan ketersediaan kelas dan siswa.
+end note
+
+@enduml

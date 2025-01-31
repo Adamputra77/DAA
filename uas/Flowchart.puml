@@ -1,0 +1,32 @@
+@startuml
+start
+:User mengakses platform les online;
+if (Sudah login?) then (Ya)
+else (Tidak)
+  :User melakukan Registrasi/Login;
+endif
+:User memilih aksi;
+split
+  -> Pilih Kursus;
+  :Lihat daftar kursus yang tersedia;
+  :Pilih kursus yang diminati;
+  :Enroll ke kursus;
+split again
+  -> Ikuti Pelajaran;
+  :Akses materi pelajaran;
+  :Tonton video atau baca modul;
+  :Kerjakan latihan dan tugas;
+split again
+  -> Evaluasi Belajar;
+  :Lihat hasil latihan dan tugas;
+  :Terima feedback dari instruktur;
+  :Perbaiki kesalahan;
+split again
+  -> Kolaborasi dengan Siswa Lain;
+  :Bergabung dengan forum diskusi;
+  :Berbagi pengalaman dan bertanya;
+  :Berkolaborasi dalam proyek;
+end split
+:User keluar atau lanjutkan belajar;
+stop
+@enduml
